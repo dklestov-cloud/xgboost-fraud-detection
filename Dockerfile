@@ -12,6 +12,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.txt /app/requirements.txt
+RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install amd_xgboost --extra-index-url=https://pypi.amd.com/rocm-6.4.4/simple
 
