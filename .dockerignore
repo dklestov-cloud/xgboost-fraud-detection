@@ -1,0 +1,11 @@
+.venv
+.venv_app
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.ipynb
+ieee-fraud-detection
+ieee-fraud-detection.zip
+scripts
+README.md
