@@ -1,4 +1,4 @@
-FROM rocm/dev-ubuntu-22.04:latest
+FROM rocm/dev-ubuntu-24.04:7.1.1-complete
 
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
@@ -14,8 +14,8 @@ RUN apt-get update \
 COPY requirements.txt /app/requirements.txt
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
-RUN #pip install amd_xgboost --extra-index-url=https://pypi.amd.com/rocm-6.4.4/simple
-RUN pip install xgboost
+RUN pip install amd_xgboost --extra-index-url=https://pypi.amd.com/rocm-7.1.1/simple
+RUN #pip install xgboost
 
 COPY app /app/app
 COPY models /app/models
