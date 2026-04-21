@@ -5,7 +5,7 @@ app/schemas.py — Pydantic-schemes for API queries and responses.
 from __future__ import annotations
 
 from typing import Any, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, Literal
 
 
 # ── input data ─────────────────────────────────────────────────────────
@@ -151,3 +151,12 @@ class HealthResponse(BaseModel):
     model_version: str
     val_sample_size: int
     test_sample_size: int
+
+
+# ── /score ──────────────────────────────────────────────────
+
+class Reason(BaseModel):
+    source: Literal["rule", "xgb", "gnn"]
+    code: str
+    detail: str
+    contribution: Optional[float] = None
